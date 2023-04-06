@@ -1,0 +1,150 @@
+$zoom: 1.25;
+
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+}
+
+@media print {
+  .no_print {
+    display: none;
+  }
+  .page {
+    zoom: $zoom;
+    background-color: white;
+  }
+}
+
+body {
+  font-family: "UD Digi Kyokasho N-R";
+}
+
+h1 {
+  font-family: "UD Digi Kyokasho N-B";
+}
+
+header {
+  width: auto;
+  height: 60px;
+  position: fixed;
+  border-bottom: dashed 1px blue;
+  background-color: white;
+  z-index: 100;
+}
+
+#footerArea {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 210mm;
+  height: 30mm;
+  padding: 2mm 2mm 2mm 5mm;
+  border-top: dashed 1px black;
+  #copy_right {
+    position: absolute;
+    height: 5mm;
+    bottom: 7mm;
+    right: 5mm;
+  }
+  z-index: 100;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  box-sizing: border-box;
+  padding: 20mm 10mm 20mm 20mm;
+  position: fixed;
+  z-index: 10;
+  border: dashed 1px red;
+}
+
+.select {
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#zoom {
+  width: 65px;
+  height: 40px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+#titleHeader {
+  width: 100%;
+  td {
+    border: solid 1px black;
+    font-size: 6mm;
+    height: 15mm;
+  }
+  #title {
+    font-size: 20px;
+    padding-left: 2mm;
+  }
+  #grade {
+    padding-left: 2mm;
+    padding-top: 15px;
+    width:50%;
+  }
+}
+
+#contents_menu {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  button {
+    margin: 2px;
+    width: 50%;
+  }
+}
+
+/* 1列目のスタイル */
+#TBL tr {
+  .td_A {
+    height: 20mm;
+    font-size: 10mm;
+  }
+  .td_A:nth-of-type(5n + 1) {
+    width: 10mm;
+    text-align: center;
+  }
+  .td_A:nth-of-type(5n + 2),
+  .td_A:nth-of-type(5n + 3),
+  .td_A:nth-of-type(5n + 4) {
+    width: 15mm;
+    text-align: center;
+  }
+  .td_A:nth-of-type(5n) {
+    width: 40mm;
+    text-align: left;
+  }
+  .td_B {
+    width: 18mm;
+    height: 10mm;
+    line-height: 11mm;
+    font-size: 11mm;
+    text-align: center;
+  }
+  .td_B:nth-of-type(4n) {
+    width: 40mm;
+  }
+  .td_C {
+    width: 16mm;
+    height: 10mm;
+    line-height: 11mm;
+    font-size: 11mm;
+    text-align: center;
+  }
+  .td_C:nth-of-type(5n) {
+    width: 40mm;
+  }
+}
+
+#comment {
+  position: absolute;
+  left: 5mm;
+  bottom: 30mm;
+}
