@@ -40,6 +40,7 @@ export function step06() {
               a = ans - b;
             }
             break;
+            // 
           }
           case "1": {
             ans = Math.floor(Math.random() * 9 + 12);
