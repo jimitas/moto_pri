@@ -5,9 +5,9 @@ import * as se from "./se.js";
 
 //初期設定
 const kigo = "+";
-const select_menu = ["10までのたしざん", "10+□,□+10", "１□+□,□+１□", "20までのたしざん"];
+const select_menu = ["10+□,□+10", "１□+□,□+１□", "20までのたしざん"];
 
-export function step02() {
+export function step06() {
   let index = "0";
   Select_create(select_menu, index);
   TBL_A_create(kigo);
@@ -30,15 +30,6 @@ export function step02() {
       for (let col = 0; col < 2; col++) {
         switch (index) {
           case "0": {
-            a = Math.floor(Math.random() * 6);
-            b = Math.floor(Math.random() * a);
-            a = a - b;
-            ans = Math.floor(Math.random() * 10 + 1);
-            a = Math.floor(Math.random() * ans + 1);
-            b = ans - a;
-            break;
-          }
-          case "1": {
             ans = Math.floor(Math.random() * 10 + 11);
             mode = Math.floor(Math.random() * 2 + 1);
             if (mode === 1) {
@@ -50,7 +41,7 @@ export function step02() {
             }
             break;
           }
-          case "2": {
+          case "1": {
             ans = Math.floor(Math.random() * 9 + 12);
             mode = Math.floor(Math.random() * 2 + 1);
             if (mode === 1) {
@@ -62,7 +53,7 @@ export function step02() {
             }
             break;
           }
-          case "3": {
+          case "2": {
             a = Math.floor(Math.random() * 9 + 2);
             b = Math.floor(Math.random() * a + (10 - a) + 1);
             ans = Math.floor(a + b);

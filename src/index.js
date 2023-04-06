@@ -1,11 +1,14 @@
 import { Menu_show } from "./00_menu.js";
 
 //ズーム設定
-document.body.style.zoom = 100 / 125;
+document.body.style.zoom = document.getElementById("zoom").value / 125;
+document.getElementById("zoom").addEventListener("change", () => {
+  document.body.style.zoom = document.getElementById("zoom").value / 125;
+});
+
 console.log("test");
 Menu_show();
 showTime();
-
 
 //時刻設定
 function showTime() {

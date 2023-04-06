@@ -5,7 +5,7 @@
 }
 
 @media print {
-  .no_print {
+  .no-print {
     display: none;
   }
   .page {
@@ -31,7 +31,7 @@ header {
   z-index: 100;
 }
 
-#footerArea {
+#footer-area {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -42,7 +42,7 @@ header {
   z-index: 100;
 }
 
-#footerArea #copy_right {
+#footer-area #copy_right {
   position: absolute;
   height: 5mm;
   bottom: 7mm;
@@ -73,28 +73,28 @@ header {
   padding-right: 5px;
 }
 
-#titleHeader {
+#title-header {
   width: 100%;
 }
 
-#titleHeader td {
+#title-header td {
   border: solid 1px black;
   font-size: 6mm;
   height: 15mm;
 }
 
-#titleHeader #title {
+#title-header #title {
   font-size: 20px;
   padding-left: 2mm;
 }
 
-#titleHeader #grade {
+#title-header #grade {
   padding-left: 2mm;
   padding-top: 15px;
   width: 50%;
 }
 
-#contents_menu {
+#contents-menu {
   height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -107,7 +107,7 @@ header {
       flex-wrap: wrap;
 }
 
-#contents_menu button {
+#contents-menu button {
   margin: 2px;
   width: 50%;
 }

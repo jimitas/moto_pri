@@ -16,29 +16,28 @@
 
 <body>
   <header id="header" style="display: flex;justify-content: center;">
-    <div class="no_print">
+    <div class="no-print">
       <button id="top" class="btn btn-danger m-2" onclick="window.location.reload()">トップ</button>
       <label for="zoom" class="input m-2">
         <input type="number" class="input" name="zoom" id="zoom" value="100" /> %
       </label>
       <select name="select" id="select" class="select m-2"></select>
-      <button id="reset" class="btn btn-success m-2">もんだい</button>
+      <button id="question" class="btn btn-success m-2">もんだい</button>
       <input type="button" class="btn btn-primary m-2" value="いんさつ" onclick="window.print();" />
     </div>
   </header>
 
   <main class="page">
-    <table id="titleHeader" class="mb-3">
-
+    <table id="title-header" class="mb-3">
     </table>
-    <div id="contents_menu">
-    </div>
     <table id="TBL">
     </table>
+    <div id="contents-menu">
+    </div>
     <div id="comment"></div>
 
-    <section id="footerArea">
-      <div id="answerArea">
+    <section id="footer-area">
+      <div id="answer-area">
       </div>
       <div id="copyRight">
         <span id="dateArea"></span>

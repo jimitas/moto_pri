@@ -6,7 +6,7 @@ $zoom: 1.25;
 }
 
 @media print {
-  .no_print {
+  .no-print {
     display: none;
   }
   .page {
@@ -32,7 +32,7 @@ header {
   z-index: 100;
 }
 
-#footerArea {
+#footer-area {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -72,7 +72,7 @@ header {
   padding-right: 5px;
 }
 
-#titleHeader {
+#title-header {
   width: 100%;
   td {
     border: solid 1px black;
@@ -86,11 +86,11 @@ header {
   #grade {
     padding-left: 2mm;
     padding-top: 15px;
-    width:50%;
+    width: 50%;
   }
 }
 
-#contents_menu {
+#contents-menu {
   height: 90%;
   display: flex;
   flex-direction: column;

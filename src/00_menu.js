@@ -3,7 +3,7 @@ import { step02 } from "./02_tasu_1.js";
 import { step03 } from "./03_hiku_1.js";
 import { step04 } from "./04_nanji_1.js";
 import { step05 } from "./05_3tuno.js";
-import { step06 } from "./06_tasu_1.js";
+import { step06 } from "./06_tasu_2.js";
 import { step07 } from "./07_hiku_2.js";
 import { step08 } from "./08_mono_hito.js";
 import { step09 } from "./09_nanji_2.js";
@@ -60,7 +60,7 @@ const TITLE = [
 
 export function Menu_show() {
   // Topページのタイトル表示
-  document.getElementById("titleHeader").innerHTML = `<div id="mainTitle" class="h2 text-center">
+  document.getElementById("title-header").innerHTML = `<div id="mainTitle" class="h2 text-center">
       <i class="fas fa-cat"></i>
         もとぷり（もっと学習プリント）
       <i class="fas fa-cat"></i>
@@ -74,9 +74,12 @@ export function Menu_show() {
     btn.style.textAlign = "left";
     btn.innerHTML = `${i + 1}　${TITLE[i]}`;
     btn.addEventListener("click", () => {
+      //ページの中を空にする。
       document.getElementById("mainTitle").innerHTML = "";
-      document.getElementById("contents_menu").innerHTML = "";
-      document.getElementById("titleHeader").innerHTML = `
+      document.getElementById("contents-menu").innerHTML = "";
+      document.getElementById("comment").innerHTML = "";
+      //タイトルの作成
+      document.getElementById("title-header").innerHTML = `
       <tr>
         <td id="title">${i + 1}　${TITLE[i]}</td>
         <td id="grade">
@@ -86,7 +89,7 @@ export function Menu_show() {
      `;
       Change_menu(i);
     });
-    contents_menu.appendChild(btn);
+    document.getElementById("contents-menu").appendChild(btn);
   }
 }
 
