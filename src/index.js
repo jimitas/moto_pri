@@ -6,7 +6,6 @@ document.getElementById("zoom").addEventListener("change", () => {
   document.body.style.zoom = document.getElementById("zoom").value / 125;
 });
 
-console.log("test");
 Menu_show();
 showTime();
 
