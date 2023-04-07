@@ -5,7 +5,7 @@ import { answerCreate } from "./answerCreate.js";
 import * as se from "./se.js";
 
 //初期設定
-const select_menu_array = ["10までのたしざん"];
+const select_menu_array = ["10までのひきざん"];
 const kigo = "-";
 const select = document.getElementById("select");
 const question = document.getElementById("question");

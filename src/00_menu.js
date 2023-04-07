@@ -9,6 +9,34 @@ import { step08 } from "./08_mono_hito.js";
 import { step09 } from "./09_nanji_2.js";
 import { step10 } from "./10_tasu_hiku.js";
 import { step11 } from "./11_100made.js";
+import { step12 } from "./12_hyou_graph.js";
+import { step13 } from "./13_tasu_hiku_hissan1.js";
+import { step14 } from "./14_1000made.js";
+import { step15 } from "./15_tasu_hiku_hissan2.js";
+import { step16 } from "./16_kake1.js";
+import { step17 } from "./17_kake2.js";
+import { step18 } from "./18_10000made.js";
+import { step19 } from "./19_kasa_nagasa.js";
+import { step20 } from "./20_warizan.js";
+import { step21 } from "./21_jikoku.js";
+import { step22 } from "./22_wari_amari.js";
+import { step23 } from "./23_kake_hissan1.js";
+import { step24 } from "./24_kake_hissan2.js";
+import { step25 } from "./25_wari_hissan1.js";
+import { step26 } from "./26_wari_hissan2.js";
+import { step27 } from "./27_shousu_kakewari_kiso.js";
+import { step28 } from "./28_bunsu_kiso.js";
+import { step29 } from "./29_taiseki.js";
+import { step30 } from "./30_shousu_kakezan.js";
+import { step31 } from "./31_shousu_warizan.js";
+import { step32 } from "./32_bunsu1.js";
+import { step33 } from "./33_taniryouatari.js";
+import { step34 } from "./34_bunsu2.js";
+import { step35 } from "./35_hayasa.js";
+import { step36 } from "./36_mojitoshiki.js";
+import { step37 } from "./37_bunsuu_kakezan.js";
+import { step38 } from "./38_bunsuu_warizan.js";
+import { step39 } from "./39_hirei_hanpirei.js";
 
 const TITLE = [
   // １年生
@@ -127,6 +155,90 @@ function Change_menu(i) {
       break;
     case 10:
       step11();
+      break;
+    case 11:
+      step12();
+      break;
+    case 12:
+      step13();
+      break;
+    case 13:
+      step14();
+      break;
+    case 14:
+      step15();
+      break;
+    case 15:
+      step16();
+      break;
+    case 16:
+      step17();
+      break;
+    case 17:
+      step18();
+      break;
+    case 18:
+      step19();
+      break;
+    case 19:
+      step20();
+      break;
+    case 20:
+      step21();
+      break;
+    case 21:
+      step22();
+      break;
+    case 22:
+      step23();
+      break;
+    case 23:
+      step24();
+      break;
+    case 24:
+      step25();
+      break;
+    case 25:
+      step26();
+      break;
+    case 26:
+      step27();
+      break;
+    case 27:
+      step28();
+      break;
+    case 28:
+      step29();
+      break;
+    case 29:
+      step30();
+      break;
+    case 30:
+      step31();
+      break;
+    case 31:
+      step32();
+      break;
+    case 32:
+      step33();
+      break;
+    case 33:
+      step34();
+      break;
+    case 34:
+      step35();
+      break;
+    case 35:
+      step36();
+      break;
+    case 36:
+      step37();
+      break;
+    case 37:
+      step38();
+      break;
+    case 38:
+      step39();
       break;
   }
 }
