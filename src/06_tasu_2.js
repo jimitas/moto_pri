@@ -1,72 +1,56 @@
 import { selectMenuCreate } from "./set.js";
-import { TBL_A_create } from "./set.js";
-import { Answer_A_create } from "./set.js";
+import { duplicationCheck } from "./duplicationCheck.js";
+import { oneLineFormulaCreate } from "./oneLineFormulaCreate.js";
+import { answerCreate } from "./answerCreate.js";
 import * as se from "./se.js";
 
 //初期設定
+const select_menu_array = ["20までのたしざん"];
 const kigo = "+";
-const select_menu_array = ["10+□,□+10", "１□+□,□+１□", "20までのたしざん"];
 
 export function step06() {
   let index = "0";
-  selectMenuCreate(select_menu_array, index);
-  TBL_A_create(kigo);
-  Question_create(index);
+  selectMenuCreate(select_menu_array);
+  question_create();
 
   // セレクトモードの作成・設定
-  document.getElementById("question").addEventListener("click", () => Question_create(index));
   select.addEventListener("change", () => {
     index = select.value;
-    Question_create(index);
+    question_create();
   });
 
-  //問題セット
-  function Question_create(index) {
-    var a, b, ans, mode;
+  //問題作成を行うボタンの設置
+  document.getElementById("question").addEventListener("click", () => question_create());
+
+  //問題作成
+  function question_create() {
+    const left_array = []; //式の左の値を格納する
+    const right_array = []; //式の右の値を格納する
+    const answer_array = []; //答えを格納する
+    const check_array = []; //重複をチェックするための配列
     se.set.currentTime = 0;
     se.set.play();
-    const kaitou = [];
-    for (let row = 0; row < 10; row++) {
-      for (let col = 0; col < 2; col++) {
-        switch (index) {
-          case "0": {
-            ans = Math.floor(Math.random() * 10 + 11);
-            mode = Math.floor(Math.random() * 2 + 1);
-            if (mode === 1) {
-              a = 10;
-              b = ans - a;
-            } else if (mode === 2) {
-              b = 10;
-              a = ans - b;
-            }
-            break;
-            //
-          }
-          case "1": {
-            ans = Math.floor(Math.random() * 9 + 12);
-            mode = Math.floor(Math.random() * 2 + 1);
-            if (mode === 1) {
-              a = Math.floor(Math.random() * (ans - 11) + 1);
-              b = ans - a;
-            } else if (mode === 2) {
-              b = Math.floor(Math.random() * (ans - 11) + 1);
-              a = ans - b;
-            }
-            break;
-          }
-          case "2": {
-            a = Math.floor(Math.random() * 9 + 2);
-            b = Math.floor(Math.random() * a + (10 - a) + 1);
-            ans = Math.floor(a + b);
-            break;
-          }
-        }
-        kaitou.push(ans);
-        TBL.rows[row].cells[col * 5 + 1].innerHTML = a;
-        TBL.rows[row].cells[col * 5 + 3].innerHTML = b;
+    let a, b, ans;
+
+    //ここに式を記述する。
+    while (check_array.length < 20) {
+      //重複のない式の組合せが必ず20以上になるようにする。
+
+      a = Math.floor(Math.random() * 9 + 2);
+      b = Math.floor(Math.random() * a + (10 - a) + 1);
+      ans = Math.floor(a + b);
+
+      const check = +(a * 100 + b); //チェック用の値
+      const result = duplicationCheck(check, check_array);
+
+      if (result) {
+        check_array.push(check);
+        left_array.push(a);
+        right_array.push(b);
+        answer_array.push(ans);
       }
     }
-    Answer_A_create(kaitou);
-    console.log(ans);
+    oneLineFormulaCreate(left_array, kigo, right_array, answer_array);
+    answerCreate(answer_array);
   }
 }

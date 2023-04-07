@@ -7,23 +7,22 @@ import * as se from "./se.js";
 //初期設定
 const select_menu_array = ["10までのたしざん"];
 const kigo = "+";
+const select = document.getElementById("select");
+const question = document.getElementById("question");
 
 export function step02() {
   let index = "0";
-  selectMenuCreate(select_menu_array, index);
-  Question_create();
-
+  selectMenuCreate(select_menu_array);
+  question_create();
   // セレクトモードの作成・設定
   select.addEventListener("change", () => {
     index = select.value;
-    Question_create();
+    question_create();
   });
-
   //問題作成を行うボタンの設置
-  document.getElementById("question").addEventListener("click", () => Question_create());
-
+  question.addEventListener("click", () => question_create());
   //問題作成
-  function Question_create() {
+  function question_create() {
     const left_array = []; //式の左の値を格納する
     const right_array = []; //式の右の値を格納する
     const answer_array = []; //答えを格納する
