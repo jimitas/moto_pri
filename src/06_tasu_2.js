@@ -1,15 +1,15 @@
-import { Select_create } from "./set.js";
+import { selectMenuCreate } from "./set.js";
 import { TBL_A_create } from "./set.js";
 import { Answer_A_create } from "./set.js";
 import * as se from "./se.js";
 
 //初期設定
 const kigo = "+";
-const select_menu = ["10+□,□+10", "１□+□,□+１□", "20までのたしざん"];
+const select_menu_array = ["10+□,□+10", "１□+□,□+１□", "20までのたしざん"];
 
 export function step06() {
   let index = "0";
-  Select_create(select_menu, index);
+  selectMenuCreate(select_menu_array, index);
   TBL_A_create(kigo);
   Question_create(index);
 
@@ -22,7 +22,7 @@ export function step06() {
 
   //問題セット
   function Question_create(index) {
-    var a, b, ans,mode;
+    var a, b, ans, mode;
     se.set.currentTime = 0;
     se.set.play();
     const kaitou = [];
@@ -40,7 +40,7 @@ export function step06() {
               a = ans - b;
             }
             break;
-            // 
+            //
           }
           case "1": {
             ans = Math.floor(Math.random() * 9 + 12);
@@ -67,6 +67,6 @@ export function step06() {
       }
     }
     Answer_A_create(kaitou);
-    console.log(ans)
+    console.log(ans);
   }
 }

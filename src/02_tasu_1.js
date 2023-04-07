@@ -1,16 +1,16 @@
-import { Select_create } from "./set.js";
+import { selectMenuCreate } from "./set.js";
 import { duplicationCheck } from "./duplicationCheck.js";
 import { oneLineFormulaCreate } from "./oneLineFormulaCreate.js";
 import { answerCreate } from "./answerCreate.js";
 import * as se from "./se.js";
 
 //初期設定
-const select_menu = ["10までのたしざん"];
+const select_menu_array = ["10までのたしざん"];
 const kigo = "+";
 
 export function step02() {
   let index = "0";
-  Select_create(select_menu, index);
+  selectMenuCreate(select_menu_array, index);
   Question_create();
 
   // セレクトモードの作成・設定
@@ -31,9 +31,10 @@ export function step02() {
     se.set.currentTime = 0;
     se.set.play();
     let a, b, ans;
+
     //ここに式を記述する。
-    //重複のない式の組合せが必ず20以上になるようにする。
     while (check_array.length < 20) {
+      //重複のない式の組合せが必ず20以上になるようにする。
       ans = Math.floor(Math.random() * 9 + 2);
       a = Math.floor(Math.random() * (ans - 1) + 1);
       b = ans - a;

@@ -1,11 +1,11 @@
 const bangou = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
 
 //セレクトメニューの作成
-export function Select_create(select_menu) {
-  for (let i = 0; i < select_menu.length; i++) {
+export function selectMenuCreate(select_menu_array) {
+  for (let i = 0; i < select_menu_array.length; i++) {
     const option = document.createElement("option");
     option.value = i;
-    option.textContent = select_menu[i];
+    option.textContent = select_menu_array[i];
     select.appendChild(option);
   }
 }
