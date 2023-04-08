@@ -2,6 +2,11 @@ const bangou = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "
 
 //セレクトメニューの作成
 export function selectMenuCreate(select_menu_array) {
+  if(select_menu_array.length>1){
+    select.style.backgroundColor = "pink";
+  }else{
+    select.style.backgroundColor = "none";
+  }
   for (let i = 0; i < select_menu_array.length; i++) {
     const option = document.createElement("option");
     option.value = i;

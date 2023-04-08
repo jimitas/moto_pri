@@ -3,7 +3,6 @@ import { duplicationCheck } from "./duplicationCheck.js";
 import { answerCreate } from "./answerCreate.js";
 import * as se from "./se.js";
 import { columnCalcCreate2Digit } from "./columnCalcCreate.js";
-import { select } from "neo-async";
 
 //初期設定
 const select_menu_array = ["くり上がりなし", "くり上がりあり"];
@@ -13,9 +12,7 @@ export function step13() {
   let index = "0";
   selectMenuCreate(select_menu_array);
   question_create();
-
-
-  // select.style.backgroundColor = "pink";
+ 
   // セレクトモードの作成・設定
   select.addEventListener("change", () => {
     index = select.value;
