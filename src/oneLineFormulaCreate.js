@@ -7,7 +7,7 @@ export function oneLineFormulaCreate(left_array, kigo, right_array) {
     const tr = document.createElement("tr");
     for (let col = 0; col < 10; col++) {
       const td = document.createElement("td");
-      td.classList.add("td_A");
+      td.classList.add("td_oneLine");
       tr.appendChild(td);
     }
     TBL.appendChild(tr);

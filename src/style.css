@@ -53,7 +53,7 @@ header {
   width: 210mm;
   height: 297mm;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 20mm 10mm 20mm 20mm;
   position: fixed;
   z-index: 10;
@@ -101,10 +101,10 @@ header {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 #contents-menu button {
@@ -113,29 +113,29 @@ header {
 }
 
 /* 1列目のスタイル */
-#TBL tr .td_A {
+#TBL tr .td_oneLine {
   height: 20mm;
   font-size: 10mm;
 }
 
-#TBL tr .td_A:nth-of-type(5n + 1) {
+#TBL tr .td_oneLine:nth-of-type(5n + 1) {
   width: 10mm;
   text-align: center;
 }
 
-#TBL tr .td_A:nth-of-type(5n + 2),
-#TBL tr .td_A:nth-of-type(5n + 3),
-#TBL tr .td_A:nth-of-type(5n + 4) {
+#TBL tr .td_oneLine:nth-of-type(5n + 2),
+#TBL tr .td_oneLine:nth-of-type(5n + 3),
+#TBL tr .td_oneLine:nth-of-type(5n + 4) {
   width: 15mm;
   text-align: center;
 }
 
-#TBL tr .td_A:nth-of-type(5n) {
+#TBL tr .td_oneLine:nth-of-type(5n) {
   width: 40mm;
   text-align: left;
 }
 
-#TBL tr .td_B {
+#TBL tr .td_2column {
   width: 18mm;
   height: 10mm;
   line-height: 11mm;
@@ -143,7 +143,7 @@ header {
   text-align: center;
 }
 
-#TBL tr .td_B:nth-of-type(4n) {
+#TBL tr .td_2column:nth-of-type(4n) {
   width: 40mm;
 }
 

@@ -103,33 +103,33 @@ header {
 
 /* 1列目のスタイル */
 #TBL tr {
-  .td_A {
+  .td_oneLine {
     height: 20mm;
     font-size: 10mm;
   }
-  .td_A:nth-of-type(5n + 1) {
+  .td_oneLine:nth-of-type(5n + 1) {
     width: 10mm;
     text-align: center;
   }
-  .td_A:nth-of-type(5n + 2),
-  .td_A:nth-of-type(5n + 3),
-  .td_A:nth-of-type(5n + 4) {
+  .td_oneLine:nth-of-type(5n + 2),
+  .td_oneLine:nth-of-type(5n + 3),
+  .td_oneLine:nth-of-type(5n + 4) {
     width: 15mm;
     text-align: center;
   }
-  .td_A:nth-of-type(5n) {
+  .td_oneLine:nth-of-type(5n) {
     width: 40mm;
     text-align: left;
   }
   // ２桁の筆算用
-  .td_B {
+  .td_2column {
     width: 18mm;
     height: 10mm;
     line-height: 11mm;
     font-size: 11mm;
     text-align: center;
   }
-  .td_B:nth-of-type(4n) {
+  .td_2column:nth-of-type(4n) {
     width: 40mm;
   }
   .td_C {

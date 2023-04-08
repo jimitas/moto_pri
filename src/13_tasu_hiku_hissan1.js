@@ -5,14 +5,13 @@ import * as se from "./se.js";
 import { columnCalcCreate2Digit } from "./columnCalcCreate.js";
 
 //初期設定
-const select_menu_array = ["くり上がりなし", "くり上がりあり"];
-const kigo = "+";
+const select_menu_array = ["+くり上がりなし", "+くり上がりあり", "-くりさがりなし", "-くりさがりあり"];
 
 export function step13() {
   let index = "0";
   selectMenuCreate(select_menu_array);
   question_create();
- 
+
   // セレクトモードの作成・設定
   select.addEventListener("change", () => {
     index = select.value;
@@ -30,7 +29,7 @@ export function step13() {
     const check_array = []; //重複をチェックするための配列
     se.set.currentTime = 0;
     se.set.play();
-    let a, b, ans;
+    let a, b, ans, kigo;
 
     //ここに式を記述する。
     while (check_array.length < 15) {
@@ -43,8 +42,9 @@ export function step13() {
           const a2 = Math.floor(Math.random() * 9 + 1);
           const b2 = Math.floor(Math.random() * (9 - a2));
           a = Math.floor(a1 * 10) + Math.floor(a2);
-          ans = Math.floor(a + b);
           b = Math.floor(b1 * 10) + Math.floor(b2);
+          ans = Math.floor(a + b);
+          kigo = "+";
           break;
         }
         case "1": {
@@ -55,6 +55,21 @@ export function step13() {
           a = Math.floor(a1 * 10) + Math.floor(a2);
           b = Math.floor(b1 * 10) + Math.floor(b2);
           ans = Math.floor(a + b);
+          kigo = "+";
+          break;
+        }
+        case "2": {
+          a = Math.floor(Math.random() * 4 + 5) * 10 + Math.floor(Math.random() * 4 + 5);
+          b = Math.floor(Math.random() * 4 + 1) * 10 + Math.floor(Math.random() * 4 + 1);
+          ans = a - b;
+          kigo = "-";
+          break;
+        }
+        case "3": {
+          a = Math.floor(Math.random() * 4 + 5) * 10 + Math.floor(Math.random() * 4 + 1);
+          b = Math.floor(Math.random() * 4 + 1) * 10 + Math.floor(Math.random() * 4 + 5);
+          ans = a - b;
+          kigo = "-";
           break;
         }
       }

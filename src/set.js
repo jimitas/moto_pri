@@ -2,9 +2,9 @@ const bangou = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "
 
 //セレクトメニューの作成
 export function selectMenuCreate(select_menu_array) {
-  if(select_menu_array.length>1){
+  if (select_menu_array.length > 1) {
     select.style.backgroundColor = "pink";
-  }else{
+  } else {
     select.style.backgroundColor = "none";
   }
   for (let i = 0; i < select_menu_array.length; i++) {
@@ -22,7 +22,7 @@ export function TBL_A_create(kigo) {
     const tr = document.createElement("tr");
     for (let col = 0; col < 10; col++) {
       const td = document.createElement("td");
-      td.classList.add("td_A");
+      td.classList.add("td_oneLine");
       tr.appendChild(td);
     }
     TBL.appendChild(tr);
@@ -42,7 +42,7 @@ export function TBL_B_create(kigo) {
     const tr = document.createElement("tr");
     for (let col = 0; col < 12; col++) {
       const td = document.createElement("td");
-      td.classList.add("td_B");
+      td.classList.add("td_2column");
       tr.appendChild(td);
     }
     TBL.appendChild(tr);

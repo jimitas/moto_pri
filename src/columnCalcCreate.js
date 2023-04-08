@@ -7,7 +7,7 @@ export function columnCalcCreate2Digit(left_array, kigo, right_array) {
     const tr = document.createElement("tr");
     for (let col = 0; col < 12; col++) {
       const td = document.createElement("td");
-      td.classList.add("td_B");
+      td.classList.add("td_2column");
       tr.appendChild(td);
     }
     TBL.appendChild(tr);
