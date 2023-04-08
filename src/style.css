@@ -147,6 +147,18 @@ header {
   text-align: left;
 }
 
+#TBL tr .td_oneLine_3formura {
+  width: 12mm;
+  height: 22mm;
+  font-size: 10mm;
+  text-align: center;
+}
+
+#TBL tr .td_oneLine_3formura:nth-of-type(1) {
+  width: 20mm;
+  text-align: center;
+}
+
 #TBL tr .td_2column {
   width: 18mm;
   height: 10mm;
