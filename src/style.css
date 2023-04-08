@@ -53,7 +53,7 @@ header {
   width: 210mm;
   height: 297mm;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding: 20mm 10mm 20mm 20mm;
   position: fixed;
   z-index: 10;
@@ -64,6 +64,18 @@ header {
   width: 300px;
   height: 40px;
   cursor: pointer;
+}
+
+.animal {
+  width: 50px;
+  height: 50px;
+  margin: 2px;
+}
+
+.input-box {
+  width: 15mm;
+  height: 15mm;
+  border: 1px solid black;
 }
 
 #zoom {
@@ -101,10 +113,10 @@ header {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #contents-menu button {
