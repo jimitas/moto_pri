@@ -36,8 +36,8 @@ export function step06() {
     while (check_array.length < 20) {
       //重複のない式の組合せが必ず20以上になるようにする。
 
-      a = Math.floor(Math.random() * 9 + 2);
-      b = Math.floor(Math.random() * a + (10 - a) + 1);
+      a = Math.floor(Math.random() * 8 + 2);
+      b = Math.floor(Math.random() * a + (8 - a) + 2);
       ans = Math.floor(a + b);
 
       const check = +(a * 100 + b); //チェック用の値
