@@ -64,7 +64,7 @@ export function TBL_C_create(kigo) {
     const tr = document.createElement("tr");
     for (let col = 0; col < 15; col++) {
       const td = document.createElement("td");
-      td.classList.add("td_C");
+      td.classList.add("td_3column");
       tr.appendChild(td);
     }
     TBL.appendChild(tr);

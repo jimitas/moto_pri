@@ -1,8 +1,8 @@
 import { selectMenuCreate } from "./set.js";
 import { duplicationCheck } from "./duplicationCheck.js";
+import { columnCalcCreate2Digit } from "./columnCalcCreate.js";
 import { answerCreate } from "./answerCreate.js";
 import * as se from "./se.js";
-import { columnCalcCreate2Digit } from "./columnCalcCreate.js";
 
 //初期設定
 const select_menu_array = ["+くり上がりなし", "+くり上がりあり", "-くりさがりなし", "-くりさがりあり"];
@@ -30,7 +30,6 @@ export function step13() {
     se.set.currentTime = 0;
     se.set.play();
     let a, b, ans, kigo;
-
     //ここに式を記述する。
     while (check_array.length < 15) {
       //重複のない式の組合せが必ず15以上になるようにする。

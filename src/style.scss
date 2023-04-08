@@ -132,14 +132,14 @@ header {
   .td_2column:nth-of-type(4n) {
     width: 40mm;
   }
-  .td_C {
+  .td_3column {
     width: 16mm;
     height: 10mm;
     line-height: 11mm;
     font-size: 11mm;
     text-align: center;
   }
-  .td_C:nth-of-type(5n) {
+  .td_3column:nth-of-type(5n) {
     width: 40mm;
   }
 }
