@@ -15,27 +15,27 @@ export function step01() {
   </div>
   <div>
     <div class="h4">
-      ①　<img id="img_1" src="../Images/dog.png" class="animal"/>は、ひだりから<input class="input-box mt-2"/>ばんめ
+      ①　<img id="img_1" src="./Images/dog.png" class="animal"/>は、ひだりから<input class="input-box mt-2"/>ばんめ
     </div>
     <br/>
     <div class="h4">
-      ②　<img id="img_2" src="../Images/dog.png"/ class="animal"/>は、みぎから<input class="input-box mt-2"/>ばんめ
+      ②　<img id="img_2" src="./Images/dog.png"/ class="animal"/>は、みぎから<input class="input-box mt-2"/>ばんめ
     </div>
     <br/>
     <div class="h4">
-      ③　<img id="img_3" src="../Images/dog.png"/ class="animal"/>は、<br/>
+      ③　<img id="img_3" src="./Images/dog.png"/ class="animal"/>は、<br/>
       　　ひだりから<input class="input-box mt-1"/>ばんめ、
       みぎから<input class="input-box mt-1"/>ばんめ
     </div>
     <br/>
     <div class="h4">
-      ④　<img id="img_4" src="../Images/dog.png"/ class="animal"/>は、<br/>
+      ④　<img id="img_4" src="./Images/dog.png"/ class="animal"/>は、<br/>
       　　ひだりから<input class="input-box mt-1"/>ばんめ、
       みぎから<input class="input-box mt-1"/>ばんめ
     </div>
     <br/>
     <div class="h4">
-      ⑤　<img id="img_5" src="../Images/dog.png"/ class="animal"/>は、<br/>
+      ⑤　<img id="img_5" src="./Images/dog.png"/ class="animal"/>は、<br/>
       　　ひだりから<input class="input-box mt-1"/>ばんめ、
       みぎから<input class="input-box mt-1"/>ばんめ
     </div>
@@ -70,11 +70,11 @@ export function step01() {
     console.log("order=" + order);
     console.log("answer=" + answer_array);
 
-    document.getElementById("img_1").src = `../Images/${ANIMALS[order[answer_array[0] - 1]]}.png`;
-    document.getElementById("img_2").src = `../Images/${ANIMALS[order[answer_array[1] - 1]]}.png`;
-    document.getElementById("img_3").src = `../Images/${ANIMALS[order[answer_array[2] - 1]]}.png`;
-    document.getElementById("img_4").src = `../Images/${ANIMALS[order[answer_array[3] - 1]]}.png`;
-    document.getElementById("img_5").src = `../Images/${ANIMALS[order[answer_array[4] - 1]]}.png`;
+    document.getElementById("img_1").src = `./Images/${ANIMALS[order[answer_array[0] - 1]]}.png`;
+    document.getElementById("img_2").src = `./Images/${ANIMALS[order[answer_array[1] - 1]]}.png`;
+    document.getElementById("img_3").src = `./Images/${ANIMALS[order[answer_array[2] - 1]]}.png`;
+    document.getElementById("img_4").src = `./Images/${ANIMALS[order[answer_array[3] - 1]]}.png`;
+    document.getElementById("img_5").src = `./Images/${ANIMALS[order[answer_array[4] - 1]]}.png`;
 
     const area = document.getElementById("answer-area");
     area.innerHTML = `
@@ -102,7 +102,7 @@ export function step01() {
     imagePlace.innerHTML = "";
     for (let i = 0; i < ANIMALS.length; i++) {
       const img = document.createElement("img");
-      img.setAttribute("src", `../Images/${ANIMALS[order[i]]}.png`);
+      img.setAttribute("src", `./Images/${ANIMALS[order[i]]}.png`);
       img.setAttribute("class", "animal");
       imagePlace.appendChild(img);
     }
