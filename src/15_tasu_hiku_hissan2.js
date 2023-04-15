@@ -77,7 +77,7 @@ export function step15() {
         answer_array.push(ans);
       }
     }
-    columnCalcCreate2Digit(left_array, kigo, right_array);
+
     switch (index) {
       case "0":
         columnCalcCreate2Digit(left_array, kigo, right_array);
