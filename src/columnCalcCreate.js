@@ -121,8 +121,8 @@ export function columnCalcCreateDivision(left_array, kigo, right_array, row_leng
       TBL.rows[row * 3].cells[col * 5 + 2].style.width = "16px";
       TBL.rows[row * 3].cells[col * 5 + 3].style.width = "16px";
       TBL.rows[row * 3 + 1].cells[col * 5 + 2].style.textAlign = "right";
-      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.letterSpacing = "20px";
-      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.width = "200px";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.letterSpacing = "16px";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.width = "150px";
     }
   }
 }
