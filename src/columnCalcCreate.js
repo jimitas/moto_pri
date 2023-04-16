@@ -63,7 +63,6 @@ export function columnCalcCreate3Digit(left_array, kigo, right_array, row_length
         TBL.rows[row * 4 + 3].cells[col * 5 + 3].style.height = "20mm";
       } else if (row_length === 3) {
         TBL.rows[row * 4 + 3].cells[col * 5 + 3].style.height = "38mm";
-     
       }
 
       const a = left_array[row * 3 + col];
@@ -83,7 +82,7 @@ export function columnCalcCreate3Digit(left_array, kigo, right_array, row_length
 //わり算の筆算の作成
 export function columnCalcCreateDivision(left_array, kigo, right_array, row_length) {
   const TBL = document.getElementById("TBL");
-  TBL.style.marginTop="30px"
+  TBL.style.marginTop = "30px";
   TBL.innerHTML = "";
   kigo = ")";
 
@@ -106,7 +105,7 @@ export function columnCalcCreateDivision(left_array, kigo, right_array, row_leng
       if (row_length === 4) {
         TBL.rows[row * 3 + 2].cells[col * 5 + 3].style.height = "30mm";
       } else if (row_length === 3) {
-        TBL.rows[row * 3 + 2].cells[col * 5 + 3].style.height = "42mm";
+        TBL.rows[row * 3 + 2].cells[col * 5 + 3].style.height = "45mm";
       }
 
       const a = left_array[row * 3 + col];
@@ -121,8 +120,12 @@ export function columnCalcCreateDivision(left_array, kigo, right_array, row_leng
       TBL.rows[row * 3].cells[col * 5 + 2].style.width = "16px";
       TBL.rows[row * 3].cells[col * 5 + 3].style.width = "16px";
       TBL.rows[row * 3 + 1].cells[col * 5 + 2].style.textAlign = "right";
-      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.letterSpacing = "16px";
-      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.width = "150px";
+      if (a > 999) {
+        TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.letterSpacing = "8px";
+      } else {
+        TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.letterSpacing = "16px";
+      }
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.width = "120px";
     }
   }
 }
