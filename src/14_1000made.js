@@ -35,7 +35,7 @@ export function step14() {
     }
 
     TBL.innerHTML = `
-    <div class="h3" style="line-height:36px;">
+    <div class="h4" style="line-height:36px;">
       <div class="py-2">①　100を${ans_100[0]}こ、10を${ans_10[0]}こ、1を${
       ans_1[0]
     }こ<br>　あわせた　数は　（　　　　）です。</div>
