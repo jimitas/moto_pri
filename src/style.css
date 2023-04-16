@@ -183,6 +183,14 @@ header {
   width: 40mm;
 }
 
+#TBL tr .td_division {
+  width: 10mm;
+  height: 10mm;
+  line-height: 11mm;
+  font-size: 11mm;
+  text-align: center;
+}
+
 #comment {
   position: absolute;
   left: 5mm;

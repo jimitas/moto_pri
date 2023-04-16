@@ -5,7 +5,9 @@ export function answerCreate(answer_array) {
   area.innerHTML = "";
   for (let i = 0; i < answer_array.length; i++) {
     const div = document.createElement("div");
-    div.style.width = "10%";
+    const len = Math.floor(answer_array.length / 2 + 0.5);
+    const width = 100 / len;
+    div.style.width = width + "%";
     div.innerHTML = `${bangou[i]}　${answer_array[i]}`;
     area.appendChild(div);
   }

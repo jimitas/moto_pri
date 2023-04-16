@@ -22,9 +22,9 @@ export function columnCalcCreate2Digit(left_array, kigo, right_array, row_length
       TBL.rows[row * 4 + 2].cells[col * 4 + 2].style.borderBottom = "solid 1px black";
       if (row_length === 4) {
         TBL.rows[row * 4 + 3].cells[col * 4 + 3].style.height = "20mm";
-      } 
+      }
       if (row_length === 3) {
-        TBL.rows[row * 4 + 3].cells[col * 4 + 3].style.height = "38mm";
+        TBL.rows[row * 3 + 3].cells[col * 3 + 3].style.height = "38mm";
       }
 
       const a = left_array[row * 3 + col];
@@ -37,6 +37,7 @@ export function columnCalcCreate2Digit(left_array, kigo, right_array, row_length
     }
   }
 }
+
 export function columnCalcCreate3Digit(left_array, kigo, right_array, row_length) {
   const TBL = document.getElementById("TBL");
   TBL.innerHTML = "";
@@ -62,6 +63,7 @@ export function columnCalcCreate3Digit(left_array, kigo, right_array, row_length
         TBL.rows[row * 4 + 3].cells[col * 5 + 3].style.height = "20mm";
       } else if (row_length === 3) {
         TBL.rows[row * 4 + 3].cells[col * 5 + 3].style.height = "38mm";
+     
       }
 
       const a = left_array[row * 3 + col];
@@ -74,6 +76,53 @@ export function columnCalcCreate3Digit(left_array, kigo, right_array, row_length
       if (Math.floor(b / 10) != 0) TBL.rows[row * 4 + 2].cells[col * 5 + 2].innerHTML = Math.floor(b / 10);
       else TBL.rows[row * 4 + 2].cells[col * 5 + 2].innerHTML = "";
       TBL.rows[row * 4 + 2].cells[col * 5 + 3].innerHTML = b % 10;
+    }
+  }
+}
+
+//わり算の筆算の作成
+export function columnCalcCreateDivision(left_array, kigo, right_array, row_length) {
+  const TBL = document.getElementById("TBL");
+  TBL.style.marginTop="30px"
+  TBL.innerHTML = "";
+  kigo = ")";
+
+  if (row_length === undefined) row_length = 3;
+
+  for (let row = 0; row < 9; row++) {
+    const tr = document.createElement("tr");
+    for (let col = 0; col < 15; col++) {
+      const td = document.createElement("td");
+      td.classList.add("td_division");
+      tr.appendChild(td);
+    }
+    TBL.appendChild(tr);
+  }
+
+  for (let row = 0; row < row_length; row++) {
+    for (let col = 0; col < 3; col++) {
+      TBL.rows[row * 3].cells[col * 5 + 3].style.borderBottom = "solid 3px black";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.borderTop = "solid 3px black";
+      if (row_length === 4) {
+        TBL.rows[row * 3 + 2].cells[col * 5 + 3].style.height = "30mm";
+      } else if (row_length === 3) {
+        TBL.rows[row * 3 + 2].cells[col * 5 + 3].style.height = "42mm";
+      }
+
+      const a = left_array[row * 3 + col];
+      const b = right_array[row * 3 + col];
+      TBL.rows[row * 3].cells[col * 5].innerHTML = bangou[row * 3 + col];
+      TBL.rows[row * 3 + 1].cells[col * 5 + 2].innerHTML = kigo;
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].innerHTML = a;
+      TBL.rows[row * 3 + 1].cells[col * 5 + 1].innerHTML = b;
+      TBL.rows[row * 3].cells[col * 5 + 4].colSpan = "2";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 2].colSpan = "2";
+      TBL.rows[row * 3 + 2].cells[col * 5 + 2].colSpan = "2";
+      TBL.rows[row * 3].cells[col * 5 + 2].style.width = "16px";
+      TBL.rows[row * 3].cells[col * 5 + 3].style.width = "16px";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 2].style.textAlign = "right";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.letterSpacing = "20px";
+      TBL.rows[row * 3 + 1].cells[col * 5 + 3].style.width = "200px";
     }
   }
 }
