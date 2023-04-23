@@ -167,7 +167,8 @@ header {
     width: 40mm;
   }
   //小数のかけ算用
-  .td_Decimals {
+  .td_Decimals,
+  .td_Decimals2 {
     width: 16mm;
     height: 10mm;
     line-height: 11mm;
@@ -185,9 +186,25 @@ header {
   .td_Decimals:nth-of-type(5n + 4) {
     text-align: left;
   }
-  .td_Decimals:nth-of-type(5n) {
+
+  //小数のかけ算用2
+  .td_Decimals2:nth-of-type(7n + 2) {
+    text-align: right;
+  }
+  .td_Decimals2:nth-of-type(7n + 3),
+  .td_Decimals2:nth-of-type(7n + 5) {
+    width: 0px;
+    padding: 0;
+    font-size: 8mm;
+    text-align: center;
+  }
+  .td_Decimals2:nth-of-type(7n + 6) {
+    text-align: left;
+  }
+  .td_Decimals2:nth-of-type(7n) {
     width: 40mm;
   }
+
   // ２桁の筆算用
   .td_division {
     width: 10mm;

@@ -131,7 +131,7 @@ export function columnCalcCreateDivision(left_array, kigo, right_array, row_leng
   }
 }
 
-//小数のかけ算１（一桁目に小数がある場合）
+//小数のかけ算１（〇.〇×〇.〇の場合）
 export function columnCalcCreateDecimals(left_array, kigo, right_array, row_length) {
   const TBL = document.getElementById("TBL");
   TBL.innerHTML = "";
@@ -162,12 +162,70 @@ export function columnCalcCreateDecimals(left_array, kigo, right_array, row_leng
 
       const a = left_array[row * 3 + col];
       const b = right_array[row * 3 + col];
-      TBL.rows[row * 4 + 1].cells[col * 5 + 1].innerHTML = Math.floor(a);
-      TBL.rows[row * 4 + 1].cells[col * 5 + 2].innerHTML = ".";
-      // TBL.rows[row * 4 + 1].cells[col * 5 + 2].style.width = "10px";
-      TBL.rows[row * 4 + 1].cells[col * 5 + 3].innerHTML = Math.floor((a * 10) % 10);
-      TBL.rows[row * 4 + 2].cells[col * 5 + 1].innerHTML = Math.floor(b / 10);
-      TBL.rows[row * 4 + 2].cells[col * 5 + 3].innerHTML = b % 10;
+
+      if (Number.isInteger(a)) {
+        TBL.rows[row * 4 + 1].cells[col * 5 + 1].innerHTML = Math.floor(a / 10);
+        TBL.rows[row * 4 + 1].cells[col * 5 + 3].innerHTML = a % 10;
+      } else {
+        TBL.rows[row * 4 + 1].cells[col * 5 + 1].innerHTML = Math.floor(a);
+        TBL.rows[row * 4 + 1].cells[col * 5 + 2].innerHTML = ".";
+        TBL.rows[row * 4 + 1].cells[col * 5 + 3].innerHTML = Math.floor((a * 10) % 10);
+      }
+      if (Number.isInteger(b)) {
+        TBL.rows[row * 4 + 2].cells[col * 5 + 1].innerHTML = Math.floor(b / 10);
+        TBL.rows[row * 4 + 2].cells[col * 5 + 3].innerHTML = b % 10;
+      } else {
+        TBL.rows[row * 4 + 2].cells[col * 5 + 1].innerHTML = Math.floor(b);
+        TBL.rows[row * 4 + 2].cells[col * 5 + 2].innerHTML = ".";
+        TBL.rows[row * 4 + 2].cells[col * 5 + 3].innerHTML = Math.floor((b * 10) % 10);
+      }
+    }
+  }
+}
+
+//小数のかけ算２（〇.〇〇×〇.〇の場合）
+export function columnCalcCreateDecimals2(left_array, kigo, right_array, row_length) {
+  const TBL = document.getElementById("TBL");
+  TBL.innerHTML = "";
+  if (row_length === undefined) row_length = 5;
+  for (let row = 0; row < 20; row++) {
+    const tr = document.createElement("tr");
+    for (let col = 0; col < 21; col++) {
+      const td = document.createElement("td");
+      td.classList.add("td_Decimals2");
+      tr.appendChild(td);
+    }
+    TBL.appendChild(tr);
+  }
+  for (let row = 0; row < row_length; row++) {
+    for (let col = 0; col < 3; col++) {
+      TBL.rows[row * 4 + 1].cells[col * 7].innerHTML = bangou[row * 3 + col];
+      TBL.rows[row * 4 + 2].cells[col * 7].innerHTML = kigo;
+      TBL.rows[row * 4 + 2].cells[col * 7].style.borderBottom = "solid 1px black";
+      TBL.rows[row * 4 + 2].cells[col * 7 + 1].style.borderBottom = "solid 1px black";
+      TBL.rows[row * 4 + 2].cells[col * 7 + 2].style.borderBottom = "solid 1px black";
+      TBL.rows[row * 4 + 2].cells[col * 7 + 3].style.borderBottom = "solid 1px black";
+      TBL.rows[row * 4 + 2].cells[col * 7 + 4].style.borderBottom = "solid 1px black";
+      TBL.rows[row * 4 + 2].cells[col * 7 + 5].style.borderBottom = "solid 1px black";
+      if (row_length === 4) {
+        TBL.rows[row * 4 + 3].cells[col * 7 + 2].style.height = "20mm";
+      }
+      if (row_length === 3) {
+        TBL.rows[row * 4 + 3].cells[col * 7 + 1].style.height = "38mm";
+      }
+
+      const a = left_array[row * 3 + col];
+      const b = right_array[row * 3 + col];
+
+      //aは〇.〇〇、bは〇.〇であることがわかっている。
+      TBL.rows[row * 4 + 1].cells[col * 7 + 1].innerHTML = Math.floor(a);
+      TBL.rows[row * 4 + 1].cells[col * 7 + 2].innerHTML = ".";
+      TBL.rows[row * 4 + 1].cells[col * 7 + 3].innerHTML = Math.floor((a * 10) % 10);
+      TBL.rows[row * 4 + 1].cells[col * 7 + 5].innerHTML = Math.floor(((a * 100) % 100) % 10);
+
+      TBL.rows[row * 4 + 2].cells[col * 7 + 3].innerHTML = Math.floor(b);
+      TBL.rows[row * 4 + 2].cells[col * 7 + 4].innerHTML = ".";
+      TBL.rows[row * 4 + 2].cells[col * 7 + 5].innerHTML = Math.floor((b * 10) % 10);
     }
   }
 }

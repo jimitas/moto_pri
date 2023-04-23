@@ -183,7 +183,8 @@ header {
   width: 40mm;
 }
 
-#TBL tr .td_Decimals {
+#TBL tr .td_Decimals,
+#TBL tr .td_Decimals2 {
   width: 16mm;
   height: 10mm;
   line-height: 11mm;
@@ -205,7 +206,23 @@ header {
   text-align: left;
 }
 
-#TBL tr .td_Decimals:nth-of-type(5n) {
+#TBL tr .td_Decimals2:nth-of-type(7n + 2) {
+  text-align: right;
+}
+
+#TBL tr .td_Decimals2:nth-of-type(7n + 3),
+#TBL tr .td_Decimals2:nth-of-type(7n + 5) {
+  width: 0px;
+  padding: 0;
+  font-size: 8mm;
+  text-align: center;
+}
+
+#TBL tr .td_Decimals2:nth-of-type(7n + 6) {
+  text-align: left;
+}
+
+#TBL tr .td_Decimals2:nth-of-type(7n) {
   width: 40mm;
 }
 
