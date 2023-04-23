@@ -166,6 +166,28 @@ header {
   .td_3column:nth-of-type(5n) {
     width: 40mm;
   }
+  //小数のかけ算用
+  .td_Decimals {
+    width: 16mm;
+    height: 10mm;
+    line-height: 11mm;
+    font-size: 11mm;
+    text-align: center;
+  }
+  .td_Decimals:nth-of-type(5n + 2) {
+    text-align: right;
+  }
+  .td_Decimals:nth-of-type(5n + 3) {
+    width: 0px;
+    padding: 0;
+    text-align: center;
+  }
+  .td_Decimals:nth-of-type(5n + 4) {
+    text-align: left;
+  }
+  .td_Decimals:nth-of-type(5n) {
+    width: 40mm;
+  }
   // ２桁の筆算用
   .td_division {
     width: 10mm;
