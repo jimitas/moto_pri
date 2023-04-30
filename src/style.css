@@ -234,6 +234,14 @@ header {
   text-align: center;
 }
 
+.clock_answer_text {
+  height: 50px;
+  margin-top: -20px;
+  font-size: 8mm;
+  text-align: right;
+  border: solid 1px black;
+}
+
 #comment {
   position: absolute;
   left: 5mm;
