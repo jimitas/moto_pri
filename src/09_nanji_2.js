@@ -52,7 +52,7 @@ export function step09() {
   //問題作成を行うボタンの設置
   document.getElementById("question").addEventListener("click", () => question_create());
   question_create();
-  
+
   //問題作成
   function question_create() {
     const answer_array = []; //答えを格納する
@@ -77,8 +77,12 @@ export function step09() {
       if (result) {
         check_array.push(check);
         answer_array.push(ans);
+        if (count < 2) {
+          Hint = "hint1";
+        } else {
+          Hint = "";
+        }
         count++;
-        Hint = "hint1";
         draw(canvas, ctx, hours, minutes, Hint);
       }
     }
