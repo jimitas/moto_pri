@@ -156,7 +156,7 @@ export function step09() {
         200 + 145 * Math.cos((Math.PI / 180) * (270 + l * 6)),
         200 + 145 * Math.sin((Math.PI / 180) * (270 + l * 6))
       );
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.5;
       ctx.strokeStyle = "black";
       ctx.stroke();
     }
@@ -170,7 +170,7 @@ export function step09() {
         200 + 140 * Math.cos((Math.PI / 180) * (270 + m * 30)),
         200 + 140 * Math.sin((Math.PI / 180) * (270 + m * 30))
       );
-      ctx.lineWidth = 2.0;
+      ctx.lineWidth = 3.0;
       ctx.strokeStyle = "black";
       ctx.stroke();
     }
