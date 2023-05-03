@@ -1,6 +1,4 @@
-import { selectMenuCreate } from "./set.js";
 import { duplicationCheck } from "./duplicationCheck.js";
-import { oneLineFormulaCreate } from "./oneLineFormulaCreate.js";
 import * as se from "./se.js";
 
 export function step01() {
