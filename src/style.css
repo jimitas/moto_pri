@@ -3,7 +3,6 @@
   size: A4 portrait;
   margin: 0mm;
 }
-
 @media print {
   .no-print {
     display: none;
@@ -13,7 +12,6 @@
     background-color: white;
   }
 }
-
 body {
   font-family: "UD Digi Kyokasho N-R";
 }
@@ -41,7 +39,6 @@ header {
   border-top: dashed 1px black;
   z-index: 100;
 }
-
 #footer-area #copy_right {
   position: absolute;
   height: 5mm;
@@ -52,8 +49,7 @@ header {
 .page {
   width: 210mm;
   height: 297mm;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 20mm 10mm 20mm 20mm;
   position: fixed;
   z-index: 10;
@@ -88,18 +84,15 @@ header {
 #title-header {
   width: 100%;
 }
-
 #title-header td {
   border: solid 1px black;
   font-size: 6mm;
   height: 15mm;
 }
-
 #title-header #title {
   font-size: 20px;
   padding-left: 2mm;
 }
-
 #title-header #grade {
   padding-left: 2mm;
   padding-top: 15px;
@@ -108,17 +101,10 @@ header {
 
 #contents-menu {
   height: 90%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-
 #contents-menu button {
   margin: 2px;
   width: 50%;
@@ -129,36 +115,30 @@ header {
   height: 20mm;
   font-size: 10mm;
 }
-
 #TBL tr .td_oneLine:nth-of-type(5n + 1) {
   width: 10mm;
   text-align: center;
 }
-
 #TBL tr .td_oneLine:nth-of-type(5n + 2),
 #TBL tr .td_oneLine:nth-of-type(5n + 3),
 #TBL tr .td_oneLine:nth-of-type(5n + 4) {
   width: 15mm;
   text-align: center;
 }
-
 #TBL tr .td_oneLine:nth-of-type(5n) {
   width: 40mm;
   text-align: left;
 }
-
 #TBL tr .td_oneLine_3formura {
   width: 12mm;
   height: 22mm;
   font-size: 10mm;
   text-align: center;
 }
-
 #TBL tr .td_oneLine_3formura:nth-of-type(1) {
   width: 20mm;
   text-align: center;
 }
-
 #TBL tr .td_2column {
   width: 18mm;
   height: 10mm;
@@ -166,11 +146,9 @@ header {
   font-size: 11mm;
   text-align: center;
 }
-
 #TBL tr .td_2column:nth-of-type(4n) {
   width: 40mm;
 }
-
 #TBL tr .td_3column {
   width: 16mm;
   height: 10mm;
@@ -178,11 +156,9 @@ header {
   font-size: 11mm;
   text-align: center;
 }
-
 #TBL tr .td_3column:nth-of-type(5n) {
   width: 40mm;
 }
-
 #TBL tr .td_Decimals,
 #TBL tr .td_Decimals2 {
   width: 16mm;
@@ -191,25 +167,20 @@ header {
   font-size: 11mm;
   text-align: center;
 }
-
 #TBL tr .td_Decimals:nth-of-type(5n + 2) {
   text-align: right;
 }
-
 #TBL tr .td_Decimals:nth-of-type(5n + 3) {
   width: 0px;
   padding: 0;
   text-align: center;
 }
-
 #TBL tr .td_Decimals:nth-of-type(5n + 4) {
   text-align: left;
 }
-
 #TBL tr .td_Decimals2:nth-of-type(7n + 2) {
   text-align: right;
 }
-
 #TBL tr .td_Decimals2:nth-of-type(7n + 3),
 #TBL tr .td_Decimals2:nth-of-type(7n + 5) {
   width: 0px;
@@ -217,15 +188,12 @@ header {
   font-size: 8mm;
   text-align: center;
 }
-
 #TBL tr .td_Decimals2:nth-of-type(7n + 6) {
   text-align: left;
 }
-
 #TBL tr .td_Decimals2:nth-of-type(7n) {
   width: 40mm;
 }
-
 #TBL tr .td_division {
   width: 10mm;
   height: 10mm;
@@ -254,5 +222,4 @@ header {
   position: absolute;
   left: 5mm;
   bottom: 30mm;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

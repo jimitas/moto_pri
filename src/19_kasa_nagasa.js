@@ -1,8 +1,13 @@
+import * as se from "./se.js";
+
 export function step19() {
   const TBL = document.getElementById("TBL");
   question.addEventListener("click", () => question_create());
   question_create();
+  
   function question_create() {
+    se.set.currentTime = 0;
+    se.set.play();
     const ans = [];
     const left_value = [];
     const right_value = [];
