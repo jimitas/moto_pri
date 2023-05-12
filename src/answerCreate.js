@@ -8,6 +8,7 @@ export function answerCreate(answer_array) {
     const len = Math.floor(answer_array.length / 2 + 0.5);
     const width = 100 / len;
     div.style.width = width + "%";
+    div.style.display = "flex";
     div.innerHTML = `${bangou[i]}　${answer_array[i]}`;
     area.appendChild(div);
   }

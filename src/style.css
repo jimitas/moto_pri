@@ -222,4 +222,30 @@ header {
   position: absolute;
   left: 5mm;
   bottom: 30mm;
+}
+
+/* 分数をスタイリングするCSSの例 */
+#TBL .fraction, .kigo {
+  font-size: 6mm;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.improper_fraction, .kigo {
+  margin: 1em 0.2em;
+  text-align: center;
+}
+
+.numerator, .denominator {
+  display: block;
+  text-align: center;
+}
+
+.denominator {
+  margin: 0.2em 0;
+}
+
+.numerator {
+  border-bottom: 1px solid black;
+  margin: 0.2em 0;
 }/*# sourceMappingURL=style.css.map */
