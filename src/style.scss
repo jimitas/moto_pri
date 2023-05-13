@@ -240,6 +240,8 @@ header {
 /* 分数をスタイリングするCSSの例 */
 .fraction-container {
   display: flex;
+  flex-wrap: wrap;
+  margin-top:1.5em;
 }
 
 #TBL .fraction,
@@ -269,11 +271,11 @@ header {
   }
 }
 
-.square{
-  width:50px;
-  height:50px;
+.square {
+  width: 50px;
+  height: 50px;
   margin: 15px;
-  border: 1px solid black;;
+  border: 1px solid black;
 }
 
 .fraction,
