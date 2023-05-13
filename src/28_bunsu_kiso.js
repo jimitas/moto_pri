@@ -3,14 +3,13 @@ import * as se from "./se.js";
 
 export function step28() {
   const number = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
-  const fugou = ["ア", "イ", "ウ", "エ"];
+  const fugou = ["　　ア", "　　イ", "　　ウ", "　　エ"];
   let answer_array = []; //答えを格納する
   const taibunsu = [];
   const TBL = document.getElementById("TBL");
 
   //問題作成を行うボタンの設置
   document.getElementById("question").addEventListener("click", () => question_create());
-  question_create();
 
   //問題作成の関数
   function question_create() {
@@ -22,6 +21,8 @@ export function step28() {
     mondai_4_create();
     //答えを描画
     answerCreate(answer_array);
+    se.set.currentTime = 0;
+    se.set.play();
   }
 
   // 問題１…次の分数を真分数と仮分数に分ける
@@ -31,39 +32,33 @@ export function step28() {
 
     const shinbunsu = [];
     const kabunsu = [];
-
+    // 問題の大枠作成
     const fractionContainer = document.createElement("div");
     fractionContainer.classList.add("fraction-container");
 
     for (let i = 0; i < 4; i++) {
       const bunshiValue = Math.floor(Math.random() * 8 + 2);
       const bunboValue = Math.floor(Math.random() * 7 + 3);
-
       // 分数の大枠生成
       const fraction = document.createElement("div");
       fraction.classList.add("d-flex", "fraction");
-
       // 「ア」～「エ」の記号を追加
       const label = addLabel(i);
       fraction.appendChild(label);
-
       //分数の作成
       const fractionWrapper = generatingFractions(bunshiValue, bunboValue);
       fraction.appendChild(fractionWrapper);
-
       // 問題を区切るための要素を生成
       const separator = document.createElement("div");
       separator.classList.add("improper_fraction");
       separator.textContent = "，";
       fraction.appendChild(separator);
-
       // 真分数と仮分数の振り分け
       if (bunshiValue < bunboValue) {
         shinbunsu.push(fugou[i]);
       } else {
         kabunsu.push(fugou[i]);
       }
-
       // fraction要素をfractionContainer要素に追加
       fractionContainer.appendChild(fraction);
     }
@@ -287,7 +282,6 @@ export function step28() {
     label.textContent = fugou[index];
     return label;
   }
-
   // 番号を追加
   function addNumber(index) {
     const label = document.createElement("div");
@@ -295,7 +289,6 @@ export function step28() {
     label.textContent = number[index];
     return label;
   }
-
   // 帯分数を追加
   function addCompoundNumber(taibunsuValue) {
     // 帯分数を生成
@@ -304,23 +297,22 @@ export function step28() {
     compoundNumber.textContent = taibunsuValue;
     return compoundNumber;
   }
-
   // 分数を生成する関数
   function generatingFractions(bunshiValue, bunboValue) {
     // 分子を生成
     const numerator = document.createElement("span");
     numerator.classList.add("numerator");
     numerator.textContent = bunshiValue;
-
     // 分母を生成
     const denominator = document.createElement("span");
     denominator.classList.add("denominator");
     denominator.textContent = bunboValue;
-
     // 分子と分母を一つにまとめる。
     const fractionWrapper = document.createElement("div");
     fractionWrapper.appendChild(numerator);
     fractionWrapper.appendChild(denominator);
     return fractionWrapper;
   }
+
+  question_create();
 }
