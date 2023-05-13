@@ -2,7 +2,7 @@ import { answerCreate } from "./answerCreate.js";
 import * as se from "./se.js";
 
 export function step28() {
-  const bangou = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
+  const number = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
   const fugou = ["ア", "イ", "ウ", "エ"];
   const bunbo = [];
   const bunshi = [];
@@ -17,68 +17,101 @@ export function step28() {
   document.getElementById("question").addEventListener("click", () => question_create());
   question_create();
 
-  function question_create() {
-    TBL.innerHTML = "";
-    const shinbunsu = [];
-    const kabunsu = [];
+  // 「ア」～「エ」の記号を追加
+  function generatingLabels(index) {
+    const label = document.createElement("div");
+    label.classList.add("improper_fraction");
+    label.textContent = fugou[index];
+    return label;
+  }
+
+  // 番号を追加
+  function addNumber(index) {
+    const label = document.createElement("div");
+    label.classList.add("improper_fraction");
+    label.textContent = number[index];
+    return label;
+  }
+
+  // 分数を生成する関数
+  function generatingFractions(bunshiValue, bunboValue) {
+    // 分子を生成
+    const numerator = document.createElement("span");
+    numerator.classList.add("numerator");
+    numerator.textContent = bunshiValue;
+
+    // 分母を生成
+    const denominator = document.createElement("span");
+    denominator.classList.add("denominator");
+    denominator.textContent = bunboValue;
+
+    // 分子と分母を一つにまとめる。
+    const fractionWrapper = document.createElement("div");
+    fractionWrapper.appendChild(numerator);
+    fractionWrapper.appendChild(denominator);
+    return fractionWrapper;
+  }
+
+  function mondai_1_create() {
     // 問題１…次の分数を真分数と仮分数に分ける
     const text_1 = document.createElement("div");
     text_1.innerHTML = `<h3>☆次の分数を真分数と仮分数に分けましょう。</h3>`;
-    TBL.appendChild(text_1);
-
+    
     const text_2 = document.createElement("div");
     text_2.style.display = "flex";
+    
+    const shinbunsu = [];
+    const kabunsu = [];
+    
+    const fractionContainer = document.createElement("div");
+    fractionContainer.classList.add("fraction-container");
+    
     for (let i = 0; i < 4; i++) {
-      bunshi[i] = Math.floor(Math.random() * 8 + 2);
-      bunbo[i] = Math.floor(Math.random() * 7 + 3);
-      if (bunshi[i] < bunbo[i]) {
+      const bunshiValue = Math.floor(Math.random() * 8 + 2);
+      const bunboValue = Math.floor(Math.random() * 7 + 3);
+      
+      // 分数の大枠生成
+      const fraction = document.createElement("div");
+      fraction.classList.add("d-flex", "fraction");
+      
+      // 「ア」～「エ」の記号を追加
+      const label = generatingLabels(i);
+      fraction.appendChild(label);
+
+      const fractionWrapper = generatingFractions(bunshiValue, bunboValue);
+      fraction.appendChild(fractionWrapper);
+      
+      // 問題を区切るための要素を生成
+      const separator = document.createElement("div");
+      separator.classList.add("improper_fraction");
+      separator.textContent = "，";
+      fraction.appendChild(separator);
+      
+      // 真分数と仮分数の振り分け
+      if (bunshiValue < bunboValue) {
         shinbunsu.push(fugou[i]);
       } else {
         kabunsu.push(fugou[i]);
       }
+
+      // fraction要素をfractionContainer要素に追加
+      fractionContainer.appendChild(fraction);
     }
-    answer_array[0] = shinbunsu;
-    answer_array[1] = kabunsu;
-
-    text_2.innerHTML = `
-    <div  class="d-flex fraction">
-      <div class="improper_fraction">ア　</div>
-      <div>
-        <span class="numerator">${bunshi[0]}</span>
-        <span class="denominator">${bunbo[0]}</span>
-      </div>
-       <div class="improper_fraction">　，　</div>
-    </div>
-    <div  class="d-flex fraction">
-      <div class="improper_fraction">イ　</div>
-      <div>
-        <span class="numerator">${bunshi[1]}</span>
-        <span class="denominator">${bunbo[1]}</span>
-      </div>
-       <div class="improper_fraction">　，　</div>
-    </div>
-    <div  class="d-flex fraction">
-      <div class="improper_fraction">ウ　</div>
-      <div>
-        <span class="numerator">${bunshi[2]}</span>
-        <span class="denominator">${bunbo[2]}</span>
-      </div>
-       <div class="improper_fraction">　，　</div>
-    </div>
-    <div  class="d-flex fraction">
-      <div class="improper_fraction">エ　</div>
-      <div>
-        <span class="numerator">${bunshi[3]}</span>
-        <span class="denominator">${bunbo[3]}</span>
-      </div>
-    </div>
-    `;
-
-    TBL.appendChild(text_2);
-
+    text_2.appendChild(fractionContainer);
+    
     const text_3 = document.createElement("div");
     text_3.innerHTML = `<h4>①真分数は（　　　　）,　②仮分数は（　　　　）</h4><br/>`;
+    
+    TBL.appendChild(text_1);
+    TBL.appendChild(text_2);
     TBL.appendChild(text_3);
+    //答えの追加
+    answer_array.push(shinbunsu, kabunsu);
+  }
+  
+  function question_create() {
+    TBL.innerHTML = "";
+    mondai_1_create();
 
     // 問題２…次の帯分数を仮分数になおす。
     const text_4 = document.createElement("div");
@@ -89,7 +122,7 @@ export function step28() {
     text_5.style.display = "flex";
     for (let i = 4; i < 8; i++) {
       bunbo[i] = Math.floor(Math.random() * 8 + 2);
-      bunshi[i] = Math.floor(Math.random() * (bunbo[i]-1) + 1);
+      bunshi[i] = Math.floor(Math.random() * (bunbo[i] - 1) + 1);
       taibunsu[i] = Math.floor(Math.random() * 3 + 1);
       const kabunsu = bunbo[i] * taibunsu[i] + bunshi[i];
 
