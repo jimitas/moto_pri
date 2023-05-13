@@ -1,11 +1,10 @@
 import { answerCreate } from "./answerCreate.js";
+import { addLabel, addNumber, addCompoundNumber, generatingFractions } from "./bunsuu.js";
+const fugou = ["ア", "イ", "ウ", "エ"];
 import * as se from "./se.js";
 
 export function step28() {
-  const number = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
-  const fugou = ["　　ア", "　　イ", "　　ウ", "　　エ"];
   let answer_array = []; //答えを格納する
-  const taibunsu = [];
   const TBL = document.getElementById("TBL");
 
   //問題作成を行うボタンの設置
@@ -113,7 +112,7 @@ export function step28() {
       // 問題を区切るための要素を生成
       const equal = document.createElement("div");
       equal.classList.add("improper_fraction");
-      equal.textContent = "＝　　　";
+      equal.textContent = "＝　　";
       fraction.appendChild(equal);
 
       // fraction要素をfractionContainer要素に追加
@@ -221,7 +220,7 @@ export function step28() {
         bunshiValue_2 = Math.floor(Math.random() * (bunboValue - 4) + 3);
         bunshiValue = Math.floor(Math.random() * (bunshiValue_2 - 2) + 1);
         taibunsuValue = 1;
-        const mixedFraction = bunboValue * taibunsu + bunshiValue;
+        const mixedFraction = bunboValue * taibunsuValue + bunshiValue;
         bunshi_result = mixedFraction - bunshiValue_2;
       }
 
@@ -275,44 +274,7 @@ export function step28() {
     TBL.appendChild(fractionContainer);
   }
 
-  // 「ア」～「エ」の記号を追加
-  function addLabel(index) {
-    const label = document.createElement("div");
-    label.classList.add("improper_fraction");
-    label.textContent = fugou[index];
-    return label;
-  }
-  // 番号を追加
-  function addNumber(index) {
-    const label = document.createElement("div");
-    label.classList.add("improper_fraction");
-    label.textContent = number[index];
-    return label;
-  }
-  // 帯分数を追加
-  function addCompoundNumber(taibunsuValue) {
-    // 帯分数を生成
-    const compoundNumber = document.createElement("div");
-    compoundNumber.classList.add("improper_fraction");
-    compoundNumber.textContent = taibunsuValue;
-    return compoundNumber;
-  }
-  // 分数を生成する関数
-  function generatingFractions(bunshiValue, bunboValue) {
-    // 分子を生成
-    const numerator = document.createElement("span");
-    numerator.classList.add("numerator");
-    numerator.textContent = bunshiValue;
-    // 分母を生成
-    const denominator = document.createElement("span");
-    denominator.classList.add("denominator");
-    denominator.textContent = bunboValue;
-    // 分子と分母を一つにまとめる。
-    const fractionWrapper = document.createElement("div");
-    fractionWrapper.appendChild(numerator);
-    fractionWrapper.appendChild(denominator);
-    return fractionWrapper;
-  }
+
 
   question_create();
 }
