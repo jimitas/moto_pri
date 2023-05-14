@@ -154,7 +154,7 @@ export function step32() {
     const fractionContainer = document.createElement("div");
     fractionContainer.classList.add("fraction-container");
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       let bunshiValue, bunshiValue_2, bunboValue, bunboValue_2, koubaisu, bunshi_result, bunbo_result;
 
       //二組の分母分子を決定する。
@@ -191,10 +191,10 @@ export function step32() {
         bunboValue = bunbo_swap;
       }
 
-      if (i < 3) {
+      if (i < 4) {
         // 約分なしでとにかく足し算する
         [bunshi_result, bunbo_result] = bunsuAdd(bunshiValue, bunboValue, bunshiValue_2, bunboValue_2);
-      } else if (i > 2) {
+      } else if (i > 3) {
         // 約分なしでとにかく引き算する
         [bunshi_result, bunbo_result] = bunsuMinus(bunshiValue, bunboValue, bunshiValue_2, bunboValue_2);
       }
@@ -230,7 +230,7 @@ export function step32() {
       fraction.appendChild(fractionWrapper);
 
       // 記号を作成
-      const KIGO = ["+", "+", "+", "-", "-", "-"];
+      const KIGO = ["+", "+", "+","+", "-", "-", "-", "-"];
       const kigo = document.createElement("div");
       kigo.classList.add("improper_fraction");
       kigo.textContent = KIGO[i];
@@ -243,7 +243,7 @@ export function step32() {
       // 問題を区切るための要素を生成
       const equal = document.createElement("div");
       equal.classList.add("improper_fraction");
-      equal.textContent = "＝　　　";
+      equal.textContent = "＝　　　　　　　";
       fraction.appendChild(equal);
 
       // fraction要素をfractionContainer要素に追加

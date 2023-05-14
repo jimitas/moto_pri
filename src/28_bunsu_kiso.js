@@ -38,7 +38,7 @@ export function step28() {
     for (let i = 0; i < 4; i++) {
       const bunshiValue = Math.floor(Math.random() * 8 + 2);
       const bunboValue = Math.floor(Math.random() * 7 + 3);
-            // 分数の大枠生成
+      // 分数の大枠生成
       const fraction = document.createElement("div");
       fraction.classList.add("d-flex", "fraction");
       // 「ア」～「エ」の記号を追加
@@ -201,7 +201,7 @@ export function step28() {
     const fractionContainer = document.createElement("div");
     fractionContainer.classList.add("fraction-container");
 
-    for (let i = 11; i < 17; i++) {
+    for (let i = 11; i < 19; i++) {
       let bunshiValue, bunshiValue_2, bunboValue, taibunsuValue, bunshi_result;
 
       if (i < 14) {
@@ -210,12 +210,12 @@ export function step28() {
         bunshiValue_2 = Math.floor(Math.random() * (bunboValue - 2) + 1);
         bunshi_result = Math.floor(bunshiValue + bunshiValue_2);
         taibunsuValue = Math.floor(Math.random() * 3 + 1);
-      } else if (i === 14 || i === 15) {
+      } else if (i > 13 && i < 17) {
         bunboValue = Math.floor(Math.random() * 5 + 5);
         bunshiValue = Math.floor(Math.random() * (bunboValue - 4) + 3);
         bunshiValue_2 = Math.floor(Math.random() * (bunshiValue - 2) + 1);
         bunshi_result = bunshiValue - bunshiValue_2;
-      } else if (i === 16) {
+      } else if (i > 16) {
         bunboValue = Math.floor(Math.random() * 5 + 5);
         bunshiValue_2 = Math.floor(Math.random() * (bunboValue - 4) + 3);
         bunshiValue = Math.floor(Math.random() * (bunshiValue_2 - 2) + 1);
@@ -224,13 +224,25 @@ export function step28() {
         bunshi_result = mixedFraction - bunshiValue_2;
       }
 
-      answer_array[i - 2] = `
-       <div  class="d-flex fraction">
+      //答えの配列に挿入
+      if (bunboValue !== bunshi_result) {
+        answer_array[i - 2] = `
+      <div  class="d-flex fraction">
+       <div>
+        <span class="numerator">${bunshi_result}</span>
+        <span class="denominator">${bunboValue}</span>
+       </div>
+       </div>`;
+      } else {
+        answer_array[i - 2] = `
+        <div  class="d-flex fraction">
         <div>
          <span class="numerator">${bunshi_result}</span>
          <span class="denominator">${bunboValue}</span>
         </div>
-       </div>`;
+       <div class="improper_fraction">(1)</div>
+      </div>`;
+      }
 
       // 分数の大枠生成
       const fraction = document.createElement("div");
@@ -241,7 +253,7 @@ export function step28() {
       fraction.appendChild(label);
 
       //帯分数の作成(i=14のとき)
-      if (i === 16) {
+      if (i > 15) {
         const compaundNumber = addCompoundNumber(taibunsuValue);
         fraction.appendChild(compaundNumber);
       }
@@ -251,7 +263,7 @@ export function step28() {
       fraction.appendChild(fractionWrapper);
 
       // 記号を作成
-      const KIGO = ["+", "+", "+", "-", "-", "-"];
+      const KIGO = ["+", "+", "+", "-", "-", "-", "-", "-"];
       const kigo = document.createElement("div");
       kigo.classList.add("improper_fraction");
       kigo.textContent = KIGO[i - 11];
@@ -264,7 +276,11 @@ export function step28() {
       // 問題を区切るための要素を生成
       const equal = document.createElement("div");
       equal.classList.add("improper_fraction");
-      equal.textContent = "＝　　　";
+      if (i < 17) {
+        equal.textContent = "＝　　　";
+      } else {
+        equal.textContent = "＝　　　　　　　";
+      }
       fraction.appendChild(equal);
 
       // fraction要素をfractionContainer要素に追加
@@ -273,8 +289,6 @@ export function step28() {
 
     TBL.appendChild(fractionContainer);
   }
-
-
 
   question_create();
 }
