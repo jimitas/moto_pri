@@ -1,11 +1,5 @@
 import { answerCreate } from "./answerCreate.js";
-import {
-  addNumber,
-  generatingFractions,
-  reduceFraction,
-  bunsuAdd,
-  bunsuMinus,
-} from "./bunsuu.js";
+import { addNumber, generatingFractions, reduceFraction, bunsuAdd, bunsuMinus } from "./bunsuu.js";
 import * as se from "./se.js";
 
 export function step32() {
@@ -48,14 +42,22 @@ export function step32() {
       if (bunshiValue === bunboValue) bunshiValue = +koubaisu;
 
       const [reducedNumerator, reducedDenominator] = reduceFraction(bunshiValue, bunboValue);
-      answer_array[i] = `
-      <div  class="d-flex fraction">
-        <div>
-          <span class="numerator">${reducedNumerator}</span>
-          <span class="denominator">${reducedDenominator}</span>
-        </div>
-      </div>`;
 
+      //答えの配列に挿入
+      if (reducedDenominator !== 1) {
+        answer_array[i] = `
+            <div  class="d-flex fraction">
+             <div>
+              <span class="numerator">${reducedNumerator}</span>
+              <span class="denominator">${reducedDenominator}</span>
+             </div>
+            </div>`;
+      } else {
+        answer_array[i] = `
+            <div  class="d-flex fraction">
+             <div class="improper_fraction">${reducedNumerator}</div>
+            </div>`;
+      }
       // 分数の大枠生成
       const fraction = document.createElement("div");
       fraction.classList.add("d-flex", "fraction");
@@ -199,13 +201,21 @@ export function step32() {
       // 返ってきた値を約分して、もう一度resultを受け取る。
       [bunshi_result, bunbo_result] = reduceFraction(bunshi_result, bunbo_result);
 
-      answer_array[i + 10] = `
+      //答えの配列に挿入
+      if (bunbo_result !== 1) {
+        answer_array[i + 10] = `
       <div  class="d-flex fraction">
-        <div>
-          <span class="numerator">${bunshi_result}</span>
-          <span class="denominator">${bunbo_result}</span>
-        </div>
+       <div>
+        <span class="numerator">${bunshi_result}</span>
+        <span class="denominator">${bunbo_result}</span>
+       </div>
       </div>`;
+      } else {
+        answer_array[i + 10] = `
+      <div  class="d-flex fraction">
+       <div class="improper_fraction">${bunshi_result}</div>
+      </div>`;
+      }
 
       // 分数の大枠生成
       const fraction = document.createElement("div");

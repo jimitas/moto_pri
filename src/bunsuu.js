@@ -15,6 +15,7 @@ export function addNumber(index) {
   label.textContent = number[index];
   return label;
 }
+
 // 帯分数を追加
 export function addCompoundNumber(taibunsuValue) {
   // 帯分数を生成
@@ -23,6 +24,7 @@ export function addCompoundNumber(taibunsuValue) {
   compoundNumber.textContent = taibunsuValue;
   return compoundNumber;
 }
+
 // 分数を生成する関数
 export function generatingFractions(bunshiValue, bunboValue) {
   // 分子を生成

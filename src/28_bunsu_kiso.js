@@ -38,7 +38,7 @@ export function step28() {
     for (let i = 0; i < 4; i++) {
       const bunshiValue = Math.floor(Math.random() * 8 + 2);
       const bunboValue = Math.floor(Math.random() * 7 + 3);
-      // 分数の大枠生成
+            // 分数の大枠生成
       const fraction = document.createElement("div");
       fraction.classList.add("d-flex", "fraction");
       // 「ア」～「エ」の記号を追加
