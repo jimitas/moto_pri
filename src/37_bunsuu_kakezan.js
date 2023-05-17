@@ -18,7 +18,6 @@ export function step37() {
 
   const number = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
   const fugou = ["　　ア", "　　イ", "　　ウ", "　　エ"];
-  let answer_array = []; //答えを格納する
   const TBL = document.getElementById("TBL");
 
   //問題作成を行うボタンの設置
